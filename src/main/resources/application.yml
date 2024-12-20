@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: Cpt
+  #数据库的连接信息
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://124.223.115.15:33060/db_computer
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Pa3da123
+mybatis:
+  #Mybatis的相关配置
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句
+#    mapper-locations: classpath:dao/*.xml #配置映射文件
+    map-underscore-to-camel-case: true #开启驼峰命名

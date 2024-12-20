@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>进度页面</title>
+    <link rel="stylesheet" href="../css/computer.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-pink-100 to-blue-100 min-h-screen flex items-center justify-center">
+<div id="mainMenu" class="bg-white shadow-2xl rounded-xl p-10 text-center max-w-md w-full">
+    <h1 class="text-4xl font-bold mb-6 text-gray-800">电脑进度</h1>
+    <div class="text-3xl mb-6 text-gray-600">当前进度：<span id="progressDisplay" class="font-mono text-blue-600">0/1000</span></div>
+
+    <div class="flex justify-center space-x-6 mb-8">
+        <button class="bg-blue-500 text-white py-3 px-5 rounded-full shadow-lg hover:bg-blue-600 transition" onclick="showSection('addSection')">添加</button>
+        <button class="bg-orange-500 text-white py-3 px-5 rounded-full shadow-lg hover:bg-orange-600 transition" onclick="showSection('subtractSection')">减少</button>
+        <button class="bg-purple-500 text-white py-3 px-5 rounded-full shadow-lg hover:bg-purple-600 transition" onclick="showSection('recordSection')">记录</button>
+    </div>
+</div>
+
+<div id="addSection" class="hidden bg-white shadow-2xl rounded-xl p-10 text-center max-w-md w-full">
+    <h2 class="text-3xl font-bold mb-6 text-gray-800">选择添加数值</h2>
+    <div class="flex justify-center space-x-6 mb-6">
+        <button class="bg-green-500 text-white py-3 px-5 rounded-full shadow-lg hover:bg-green-600 transition" onclick="changeNumber(3)">+3</button>
+        <button class="bg-green-500 text-white py-3 px-5 rounded-full shadow-lg hover:bg-green-600 transition" onclick="changeNumber(5)">+5</button>
+        <button class="bg-green-500 text-white py-3 px-5 rounded-full shadow-lg hover:bg-green-600 transition" onclick="changeNumber(10)">+10</button>
+    </div>
+    <div class="mb-6">
+        <input id="customAdd" type="number" max="50" placeholder="最多50" class="w-24 py-2 px-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-300">
+        <button class="bg-green-500 text-white py-3 px-5 rounded-full shadow-lg hover:bg-green-600 transition" onclick="customChange(1)">添加</button>
+    </div>
+    <button class="bg-gray-300 text-black py-2 px-5 rounded-full shadow-lg hover:bg-gray-400 transition" onclick="showSection('mainMenu')">返回</button>
+</div>
+
+<div id="subtractSection" class="hidden bg-white shadow-2xl rounded-xl p-10 text-center max-w-md w-full">
+    <h2 class="text-3xl font-bold mb-6 text-gray-800">选择减少数值</h2>
+    <div class="flex justify-center space-x-6 mb-6">
+        <button id="subtract3" class="bg-red-500 text-white py-3 px-5 rounded-full shadow-lg hover:bg-red-600 transition" onclick="changeNumber(-3)">-3</button>
+        <button id="subtract5" class="bg-red-500 text-white py-3 px-5 rounded-full shadow-lg hover:bg-red-600 transition" onclick="changeNumber(-5)">-5</button>
+        <button id="subtract10" class="bg-red-500 text-white py-3 px-5 rounded-full shadow-lg hover:bg-red-600 transition" onclick="changeNumber(-10)">-10</button>
+    </div>
+    <div class="mb-6">
+        <input id="customAdd" type="number" max="50" placeholder="最多50" class="w-24 py-2 px-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-300">
+        <input id="reason" type="text" placeholder="输入理由" class="w-64 py-2 px-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-300">
+        <button class="bg-green-500 text-white py-3 px-5 rounded-full shadow-lg hover:bg-green-600 transition" onclick="customChange(1)">添加</button>
+    </div>
+    <button class="bg-gray-300 text-black py-2 px-5 rounded-full shadow-lg hover:bg-gray-400 transition" onclick="showSection('mainMenu')">返回</button>
+</div>
+<div id="recordSection" class="hidden bg-white shadow-2xl rounded-xl p-10 text-center max-w-md w-full">
+    <h2 class="text-3xl font-bold mb-6 text-gray-800">记录</h2>
+    <div id="recordList" class="space-y-4">
+        <!-- 记录列表将被动态填充 -->
+    </div>
+    <button class="bg-gray-300 text-black py-2 px-5 rounded-full shadow-lg hover:bg-gray-400 transition" onclick="showSection('mainMenu')">返回</button>
+</div>
+
+<script src="../js/computer.js"></script>
+</body>
+</html>

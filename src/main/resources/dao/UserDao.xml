@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cpt.dao.UserDao">
+
+    <!--resultType: 查询返回的单条记录所封装的类型-->
+    <select id="findByUsername" parameterType="String" resultType="com.cpt.entity.User">
+        select id, username, password from db_computer.users where username = #{username}
+    </select>
+
+    <!-- 注册用户 -->
+    <!-- 注册用户 -->
+    <insert id="register" parameterType="com.cpt.entity.User">
+        INSERT INTO db_computer.users (username, password, email, created_at)
+        VALUES (#{username}, #{password}, #{email}, now())
+    </insert>
+</mapper>
